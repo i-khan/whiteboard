@@ -14,7 +14,7 @@ pids
 *.pid.lock
 
 # Compilation result
-/dist
+#/dist
 
 # upload folder, etc.
 /public/uploads

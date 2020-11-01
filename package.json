@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/cracker0dks/whiteboard"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "keywords": [
     "whiteboard",
     "Sketchboard",
