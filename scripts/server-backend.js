@@ -5,6 +5,13 @@ const ReadOnlyBackendService = require("./services/ReadOnlyBackendService");
 const WhiteboardInfoBackendService = require("./services/WhiteboardInfoBackendService");
 
 function startBackendServer(port) {
+    const fs = require("fs");
+
+    const sslOptions = {
+        key: fs.readFileSync("key.pem"),
+        cert: fs.readFileSync("cert.pem"),
+    };
+
     var fs = require("fs-extra");
     var express = require("express");
     var formidable = require("formidable"); //form upload processing
@@ -21,7 +28,7 @@ function startBackendServer(port) {
     var app = express();
     app.use(express.static(path.join(__dirname, "..", "dist")));
     app.use("/uploads", express.static(path.join(__dirname, "..", "public", "uploads")));
-    var server = require("http").Server(app);
+    var server = require("https").Server(sslOptions, app);
     server.listen(port);
     var io = require("socket.io")(server, { path: "/ws-api" });
     WhiteboardInfoBackendService.start(io);
