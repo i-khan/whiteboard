@@ -68,7 +68,7 @@ class ConfigService {
     /**
      * @type {string}
      */
-    #backgroundGridImage = "bg_grid.png";
+    #backgroundGridImage = "bg_white.png";
     get backgroundGridImage() {
         return this.#backgroundGridImage;
     }
