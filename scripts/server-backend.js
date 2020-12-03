@@ -5,11 +5,11 @@ const ReadOnlyBackendService = require("./services/ReadOnlyBackendService");
 const WhiteboardInfoBackendService = require("./services/WhiteboardInfoBackendService");
 
 function startBackendServer(port) {
-    const fs = require("fs");
+    const fs1 = require("fs");
 
     const sslOptions = {
-        key: fs.readFileSync("key.pem"),
-        cert: fs.readFileSync("cert.pem"),
+        key: fs1.readFileSync("key.pem"),
+        cert: fs1.readFileSync("cert.pem"),
     };
 
     var fs = require("fs-extra");
